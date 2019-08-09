@@ -53,19 +53,6 @@ let currentIndex = 0;
 let images = document.querySelectorAll(".carousel-container img");
 images[currentIndex].style.display = "block";
 images[currentIndex].style.opacity = 1;
-images.forEach((image) => {
-  image.addEventListener("click", (event) => {
-    TweenLite.to(event.target, .5, {opacity:0, display:"none"});
-    if (currentIndex == 0) {
-      currentIndex = images.length - 1;
-    } else {
-      currentIndex--;
-    }
-    setTimeout(() => {
-      TweenLite.to(images[currentIndex], .5, {opacity: 1, display:"block"});
-    }, 500);
-  });
-});
 document.querySelector(".left-button").addEventListener("click", (event) => {
   TweenLite.to(images[currentIndex], .5, {opacity:0, display:"none"});
   if (currentIndex == 0) {
@@ -88,4 +75,17 @@ document.querySelector(".right-button").addEventListener("click", (event) => {
   setTimeout(() => {
     TweenLite.to(images[currentIndex], .5, {opacity: 1, display:"block"});
   }, 500);
+});
+images.forEach((image) => {
+  image.addEventListener("click", (event) => {
+    TweenLite.to(event.target, .5, {opacity:0, display:"none"});
+    if (currentIndex == images.length - 1) {
+      currentIndex = 0;
+    } else {
+      currentIndex++;
+    }
+    setTimeout(() => {
+      TweenLite.to(images[currentIndex], .5, {opacity: 1, display:"block"});
+    }, 500);``
+  });
 });
