@@ -28,13 +28,17 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
-1. What is the DOM?
+1. What is the DOM?  
+DOM stands for the Document Object Model. It is an API for HTML documents and shows how it is structured. It is shaped like a tree, having the root element (html) and each branch being one of its direct children, which also have their own children.  
 
-2. What is an event?
+2. What is an event?  
+An event is any interaction the user tries to make with the page. It varies from mouse clicks, to scrolling, to keypresses. The webpage loading up is also an event!  
 
-3. What is an event listener?
+3. What is an event listener?  
+An event listener is a property you can add to anything on the DOM. It will look for an event to occur on that element, like mouse click, and will run the callback given to it every time it occurs.  
 
-4. Why would we convert a NodeList into an Array?
+4. Why would we convert a NodeList into an Array?  
+NodeList are array-like objects, however, they do not have array methods. If we want to use array methods like map and forEach we would need to convert them to arrays.
 
 5. What is a component?
 
