@@ -11,7 +11,7 @@
 let url = "https://lambda-times-backend.herokuapp.com/topics";
 axios.get(url)
     .then(createTabs)
-    .then(appendToPage)
+    .then(appendTabs)
     .catch(catchErr);
 
 function createTabs(response){
@@ -24,7 +24,7 @@ function createTabs(response){
     })
 }
 
-function appendToPage(tabs){
+function appendTabs(tabs){
     let topics = document.querySelector(".topics");
     tabs.forEach((tab) => {
         topics.append(tab);
