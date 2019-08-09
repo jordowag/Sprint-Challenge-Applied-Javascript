@@ -17,3 +17,18 @@
     <div class="right-button"> > </div>
   </div>
 */
+function createCarousel(){
+  let sources = [
+    "./assets/carousel/mountains.jpeg",
+    "./assets/carousel/computer.jpeg",
+    "./assets/carousel/trees.jpeg",
+    "./assets/carousel/turntable.jpeg"
+  ];
+  let carousel = ce("div")
+  carousel.classList.add("carousel");
+  let htmlImgs = sources.map((source) => {
+    let img = ce("img");
+    img.src = source;
+    return img
+  });
+}

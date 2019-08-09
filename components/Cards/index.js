@@ -27,7 +27,6 @@ axios.get(articlesURL)
 
 function createArticles(response) {
     let data = response.data;
-    console.log(data.articles);
     let articles = [];
     for (property in data.articles) {
         data.articles[property].forEach((article) => {
@@ -75,9 +74,7 @@ function filter(){
             document.querySelector(".selected").classList.remove("selected");
             event.target.classList.add("selected");
             let topic = event.target.type;
-            console.log(topic);
             cards.forEach((card) => {
-                console.log(card.type);
                 if (topic == "all" || topic == card.type) {
                     card.classList.remove("hidden");
                 } else {
