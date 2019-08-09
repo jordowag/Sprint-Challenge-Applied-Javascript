@@ -16,9 +16,14 @@ axios.get(url)
 
 function createTabs(response){
     let data = response.data;
+    data.topics.unshift("all");
     return data.topics.map((topic) => {
         let tab = ce("div");
+        if (topic == "all") {
+            tab.classList.add("selected");
+        }
         tab.classList.add("tab");
+        tab.type = topic;
         tab.textContent = topic;
         return tab
     })

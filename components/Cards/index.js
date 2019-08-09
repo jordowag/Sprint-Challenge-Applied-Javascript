@@ -21,15 +21,23 @@ let articlesURL = "https://lambda-times-backend.herokuapp.com/articles";
 axios.get(articlesURL)
     .then(createArticles)
     .then(appendArticles)
+    .then(filter)
     .catch(catchErr);
+
 
 function createArticles(response) {
     let data = response.data;
+    console.log(data.articles);
     let articles = [];
     for (property in data.articles) {
         data.articles[property].forEach((article) => {
             let card = ce("div");
             card.classList.add("card");
+            if (property == "node"){
+                card.type = "node.js";
+            } else {
+                card.type = property;
+            }
             let headline = ce("div");
             headline.classList.add("headline");
             let author = ce("div");
@@ -53,8 +61,29 @@ function createArticles(response) {
 }
 
 function appendArticles(articles) {
-    let cards = document.querySelector(".cards-container");
+    let cardsCont = document.querySelector(".cards-container");
     articles.forEach((article) => {
-        cards.append(article);
+        cardsCont.append(article);
+    });
+}
+
+function filter(){
+    let cards = document.querySelectorAll(".card");
+    let tabs = document.querySelectorAll(".tab");
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", (event) => {
+            document.querySelector(".selected").classList.remove("selected");
+            event.target.classList.add("selected");
+            let topic = event.target.type;
+            console.log(topic);
+            cards.forEach((card) => {
+                console.log(card.type);
+                if (topic == "all" || topic == card.type) {
+                    card.classList.remove("hidden");
+                } else {
+                    card.classList.add("hidden");
+                }
+            });
+        })
     });
 }
