@@ -17,3 +17,9 @@
 // </div>
 //
 // Create a card for each of the articles and add the card to the DOM.
+'use strict';
+let url = "https://lambda-times-backend.herokuapp.com/articles";
+axios.get(url)
+    .then((repsponse) => {
+        console.log(response.data);
+    })

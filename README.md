@@ -38,10 +38,10 @@ An event is any interaction the user tries to make with the page. It varies from
 An event listener is a property you can add to anything on the DOM. It will look for an event to occur on that element, like mouse click, and will run the callback given to it every time it occurs.  
 
 4. Why would we convert a NodeList into an Array?  
-NodeList are array-like objects, however, they do not have array methods. If we want to use array methods like map and forEach we would need to convert them to arrays.
+NodeList are array-like objects, however, they do not have array methods. If we want to use array methods like map and reduce we would need to convert them to arrays.
 
-5. What is a component?
-
+5. What is a component?  
+A component is a snippet of code that can be reused. They can also be a part of a bigger piece of code that can be broken down. Using Twitter as an example, each Tweet could be a component, since all Tweets have the same data: username, date, content, likes and retweets. You can be reuse the code that creates the structure a Tweet with different data.  
 ### Git Set up
 
 * [ ] Fork the project into your GitHub user account
